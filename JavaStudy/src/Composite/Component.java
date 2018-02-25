@@ -21,6 +21,7 @@ public abstract class Component {
 
     }
 
+    //자기를 포함한 하위 컴포넌트 구조를 문자열로 방환
     private String getDerectoryStructure(int depth){
         StringBuilder strBuilder = new StringBuilder();
         for (int i  = 0 ; i < depth ; i++){
@@ -41,6 +42,8 @@ public abstract class Component {
     }
 }
 
+
+//자식을 가질 수 있는 클래스
 class Composit extends Component{
 
     public Composit(String componentName) {
@@ -53,6 +56,7 @@ class Composit extends Component{
     }
 }
 
+//자식을 가질 수 없는 클래스
 class Leaf extends Component{
 
     public Leaf(String componentName) {
@@ -66,6 +70,7 @@ class Leaf extends Component{
     }
 }
 
+//테스트
 class FileManager{
     public static void main(String args[]){
         Composit C = new Composit("C");
