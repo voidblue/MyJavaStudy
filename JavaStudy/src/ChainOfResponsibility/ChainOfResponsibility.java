@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//각 연산 클래스는 Operator를 상속받고 , Operator는 자신을 상속받은 클래스의 객체를 연결해서 호출하는 기능 내포
+//곱셈클래스 > 나눗셈클래스 > 더하기클래스 > 뺴기클래스의 객체를 순서대로 호줄해서 사칙연산 순서 맞추고
+//각 객체가 해결할 수 있는 연산만 하고 넘기기
 abstract class Operator {
     List expression;
     Operator nextOp;
@@ -127,7 +130,7 @@ class Multiplier extends Operator{
 
 public class ChainOfResponsibility {
     public static void main(String args[]){
-        String strExpresstion = "1 + 2 + 3 + 4 * 2 * 3 * 5 * 1 / 2 / 3 / 1 / 2 + 5 + 1 + 2 - 3 - 1 - 2 - 3 + 5 + 1 - 2 - 3";
+        String strExpresstion = "1 + 2 + 3 + 4 * 2 * 5 + 5 * 5 * 1 / 2 / 3 / 1 / 2 + 5 + 1 + 2 - 3 - 1 - 2 - 3 + 5 + 1 - 2 - 3";
         String[] arrayExpresstion = strExpresstion.split(" ");
         List listExpresstion = new ArrayList();
         for( String e : arrayExpresstion){
